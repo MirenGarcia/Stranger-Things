@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>GALLERY</title>
+  <link rel="stylesheet" href="galeria.css" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <header>
+    <img class="logo" src="Img/Pàgina1/logo.png" alt="Logo">
+
+  </header>
+  <nav>
+
+    <ul>
+      <li> <a href="index.html">HOME </a> </li>
+      <li><a href="information.html">INFORMATION </a> </li>
+      <li class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">HISTORY</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="history.html">Season 1</a>
+          <a href="history_s2.html">Season 2</a>
+          <a href="history_S3.html">Season 3</a>
+        </div>
+      </li>
+
+      <li> <a class="home" href="gallery.html">GALLERY </a> </li>
+
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- Slideshow container -->
+<div class="slideshow-container">
+
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides fade">
+      <img src="Img/galeria/screen-1.jpg" style="width:100%">
+      
+    </div>
+  
+    <div class="mySlides fade">
+      
+      <img src="Img/galeria/903358.jpg" style="width:100%">
+      
+    </div>
+  
+    <div class="mySlides fade">
+      <img src="Img/galeria/D_NZohPUEAA5kCa.jpg" style="width:100%">
+      
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Img/galeria/thumb-1920-879366.png" style="width:100%">
+        
+      </div>
+  
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  
+  <!-- The dots/circles -->
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+  </div>
+
+  </main>
+  <footer>
+
+    <h2> CONTACT US </h2>
+    <p>If you have any problem, please send an email to stranger-things@netflix.es.</p>
+
+  </footer>
+</body>
+
+<script>
+  /* When the user clicks on the button, 
+  toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+  var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+</script>
+
+</html>
